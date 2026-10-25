@@ -1,0 +1,9 @@
+{
+  "name": "flavor-api",
+  "version": "1.0.0",
+  "description": "烟火食迹 API 云函数",
+  "main": "index.js",
+  "dependencies": {
+    "@cloudbase/node-sdk": "^2.9.0"
+  }
+}

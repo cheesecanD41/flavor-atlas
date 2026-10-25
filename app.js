@@ -2,6 +2,7 @@
   "use strict";
 
   const SEED_RECORDS = Array.isArray(window.FLAVOR_SEED_RECORDS) ? window.FLAVOR_SEED_RECORDS : [];
+  const API_BASE = String(window.FLAVOR_API_BASE || "api").replace(/\/+$/, "");
   const MAX_IMAGE_BYTES = 2 * 1024 * 1024;
   const LOCAL_RECORDS_KEY = "flavor-atlas-local-records-v1";
   const AUTHOR_KEY = "flavor-atlas-author";
@@ -145,7 +146,7 @@
   async function refreshStats() {
     if (state.backendAvailable) {
       try {
-        const response = await fetch("api/stats", { cache: "no-store" });
+        const response = await fetch(`${API_BASE}/stats`, { cache: "no-store" });
         if (!response.ok) throw new Error("stats unavailable");
         const data = await response.json();
         state.stats = {
@@ -685,7 +686,7 @@
     try {
       if (state.backendAvailable) {
         try {
-          const response = await fetch(`api/records?regionId=${encodeURIComponent(region.id)}`, { cache: "no-store" });
+          const response = await fetch(`${API_BASE}/records?regionId=${encodeURIComponent(region.id)}`, { cache: "no-store" });
           if (!response.ok) throw new Error(`records unavailable: ${response.status}`);
           const data = await response.json();
           records = Array.isArray(data.records) ? data.records : [];
@@ -1040,7 +1041,7 @@
   async function saveRecordToApi(payload) {
     let response;
     try {
-      response = await fetch("api/records", {
+      response = await fetch(`${API_BASE}/records`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload)
