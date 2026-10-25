@@ -1,0 +1,24 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "api/**/*.js",
+      "use": "@vercel/node"
+    },
+    {
+      "src": "**/*.{html,css,js,mjs,json,svg,png,jpg,jpeg,webp,ico,woff2,txt}",
+      "use": "@vercel/static"
+    }
+  ],
+  "routes": [
+    { "src": "/api/stats", "dest": "/api/stats.js" },
+    { "src": "/api/records", "dest": "/api/records.js" },
+    { "src": "/", "dest": "/index.html" },
+    { "src": "/(.*)", "dest": "/$1" }
+  ],
+  "functions": {
+    "api/**/*.js": {
+      "maxDuration": 10
+    }
+  }
+}
