@@ -1,0 +1,81 @@
+/* Seed content shipped with the demo. Runtime uploads are handled by server.mjs. */
+window.FLAVOR_SEED_RECORDS = [
+  {
+    id: "seed-gz-001", regionId: "440100", regionName: "广州市", provinceId: "440000", provinceName: "广东省",
+    imageUrl: "assets/images/food-1.jpg", dishName: "鲜虾肠粉",
+    description: "晨光刚亮，街角肠粉店的蒸汽先醒了。米浆薄薄一层，裹着鲜虾与韭黄，淋一勺豉油，就是广州人最笃定的早安。",
+    author: "阿澄", createdAt: "2026-10-20T07:18:00+08:00"
+  },
+  {
+    id: "seed-gz-002", regionId: "440100", regionName: "广州市", provinceId: "440000", provinceName: "广东省",
+    imageUrl: "assets/images/food-4.jpg", dishName: "荔湾艇仔粥",
+    description: "鱼片、花生、油条丝和一碗绵软白粥在碗里碰头。坐在骑楼下慢慢喝，耳边是粤语和碗勺轻碰的声音。",
+    author: "小满", createdAt: "2026-10-18T21:42:00+08:00"
+  },
+  {
+    id: "seed-cz-001", regionId: "445100", regionName: "潮州市", provinceId: "440000", provinceName: "广东省",
+    imageUrl: "assets/images/food-3.jpg", dishName: "潮汕牛肉丸",
+    description: "筷子一夹还能感到弹劲，咬开时汤气跟着冒出来。清汤里只放一点芹菜末，鲜甜已经足够响亮。",
+    author: "阿哲", createdAt: "2026-10-17T12:10:00+08:00"
+  },
+  {
+    id: "seed-cd-001", regionId: "510100", regionName: "成都市", provinceId: "510000", provinceName: "四川省",
+    imageUrl: "assets/images/food-2.jpg", dishName: "红油抄手",
+    description: "皮薄得像一层云，红油、花椒面和芝麻香一起追上来。吃完嘴唇微微发麻，才算是成都给的问候。",
+    author: "辣子", createdAt: "2026-10-19T09:25:00+08:00"
+  },
+  {
+    id: "seed-cd-002", regionId: "510100", regionName: "成都市", provinceId: "510000", provinceName: "四川省",
+    imageUrl: "assets/images/food-6.jpg", dishName: "钟水饺",
+    description: "甜咸麻辣都收在一小碗里，蒜泥的香特别直接。老街边的小店，桌上总有一壶温热的茶水。",
+    author: "竹子", createdAt: "2026-10-13T17:05:00+08:00"
+  },
+  {
+    id: "seed-cs-001", regionId: "430100", regionName: "长沙市", provinceId: "430000", provinceName: "湖南省",
+    imageUrl: "assets/images/food-3.jpg", dishName: "清晨嗦粉",
+    description: "一碗热汤粉，码子铺得满满当当。邻桌的人边嗦粉边聊昨晚的球赛，长沙的一天就这样热热闹闹地开始。",
+    author: "湘里人", createdAt: "2026-10-16T08:02:00+08:00"
+  },
+  {
+    id: "seed-xa-001", regionId: "610100", regionName: "西安市", provinceId: "610000", provinceName: "陕西省",
+    imageUrl: "assets/images/food-5.jpg", dishName: "油泼面",
+    description: "宽面出锅，辣椒面、蒜末、葱花铺好，一勺滚油落下，香气立刻站起来。拌匀的那一下最让人期待。",
+    author: "长安客", createdAt: "2026-10-12T19:30:00+08:00"
+  },
+  {
+    id: "seed-hz-001", regionId: "330100", regionName: "杭州市", provinceId: "330000", provinceName: "浙江省",
+    imageUrl: "assets/images/food-4.jpg", dishName: "片儿川",
+    description: "雪菜、笋片和肉片煮出清鲜的一锅，面条吸饱汤汁。下雨天吃上一碗，胃里和窗外的西湖都安静了。",
+    author: "晚舟", createdAt: "2026-10-11T11:48:00+08:00"
+  },
+  {
+    id: "seed-xm-001", regionId: "350200", regionName: "厦门市", provinceId: "350000", provinceName: "福建省",
+    imageUrl: "assets/images/food-1.jpg", dishName: "沙茶面",
+    description: "沙茶汤底浓得像一段旧故事，豆腐、鸭血和鱿鱼都能放进同一碗。海风一吹，热气散得刚刚好。",
+    author: "海蛎", createdAt: "2026-10-09T18:33:00+08:00"
+  },
+  {
+    id: "seed-bj-001", regionId: "110105", regionName: "朝阳区", provinceId: "110000", provinceName: "北京市",
+    imageUrl: "assets/images/food-3.jpg", dishName: "胡同炸酱面",
+    description: "面码整整齐齐摆一圈，酱要一点点拌开。坐在胡同口的小桌边，听自行车铃从身边经过。",
+    author: "北北", createdAt: "2026-10-08T13:16:00+08:00"
+  },
+  {
+    id: "seed-bj-002", regionId: "110105", regionName: "朝阳区", provinceId: "110000", provinceName: "北京市",
+    imageUrl: "assets/images/food-2.jpg", dishName: "糖火烧",
+    description: "外层酥，里头带着红糖和麻酱的厚香。配一杯热茶，是很适合慢慢坐一会儿的下午。",
+    author: "栗子", createdAt: "2026-10-06T15:20:00+08:00"
+  },
+  {
+    id: "seed-sh-001", regionId: "310101", regionName: "黄浦区", provinceId: "310000", provinceName: "上海市",
+    imageUrl: "assets/images/food-2.jpg", dishName: "生煎馒头",
+    description: "底部煎得金黄焦脆，咬之前要先开个小口。滚烫的汤汁和芝麻香，是弄堂早晨最鲜活的注脚。",
+    author: "弄堂风", createdAt: "2026-10-05T07:56:00+08:00"
+  },
+  {
+    id: "seed-hk-001", regionId: "810003", regionName: "东区", provinceId: "810000", provinceName: "香港特别行政区",
+    imageUrl: "assets/images/food-4.jpg", dishName: "港式云吞面",
+    description: "细面爽利，云吞里包着整只鲜虾。清汤看着安静，鲜味却很饱满，像雨天车站旁亮着的一盏灯。",
+    author: "维港", createdAt: "2026-10-04T20:11:00+08:00"
+  }
+];

@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <rect width="64" height="64" rx="14" fill="#f3eadb"/>
+  <rect x="8" y="8" width="48" height="48" rx="10" fill="none" stroke="#bc5734" stroke-width="2"/>
+  <text x="32" y="42" text-anchor="middle" font-family="serif" font-size="30" fill="#bc5734">味</text>
+</svg>

@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: flavor-atlas
+    runtime: node
+    plan: free
+    buildCommand: npm install
+    startCommand: node server.mjs
+    envVars:
+      - key: NODE_ENV
+        value: production
+    autoDeploy: true

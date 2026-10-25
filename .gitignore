@@ -1,0 +1,10 @@
+# 依赖
+node_modules/
+
+# 运行时生成的数据
+data/uploads/
+*.log
+
+# 系统文件
+.DS_Store
+Thumbs.db

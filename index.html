@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#f3eadb">
+  <meta name="description" content="烟火食迹，一张由众人共同记录的地域美食地图。">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <title>烟火食迹 · 人间风味地图</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="map.css">
+  <link rel="stylesheet" href="drawer.css">
+  <link rel="stylesheet" href="form.css">
+  <link rel="stylesheet" href="responsive.css">
+</head>
+<body>
+  <a class="skip-link" href="#mainContent">跳至主要内容</a>
+
+  <div class="paper-texture" aria-hidden="true"></div>
+  <div class="ambient-smoke" aria-hidden="true">
+    <span class="smoke smoke--one"></span>
+    <span class="smoke smoke--two"></span>
+    <span class="smoke smoke--three"></span>
+  </div>
+
+  <div class="totem-field" aria-hidden="true">
+    <span class="totem totem--bowl" data-totem><i data-lucide="soup"></i></span>
+    <span class="totem totem--chopsticks" data-totem><i data-lucide="utensils"></i></span>
+    <span class="totem totem--pot" data-totem><i data-lucide="cooking-pot"></i></span>
+    <span class="totem totem--flame" data-totem><i data-lucide="flame"></i></span>
+    <span class="totem totem--wheat" data-totem><i data-lucide="wheat"></i></span>
+  </div>
+
+  <header class="site-header">
+    <button class="brand" id="brandHome" type="button" aria-label="返回烟火食迹首页">
+      <span class="brand-seal" aria-hidden="true">味</span>
+      <span class="brand-copy">
+        <strong>烟火食迹</strong>
+        <small>FLAVOR ATLAS</small>
+      </span>
+    </button>
+
+    <div class="header-actions">
+      <span class="header-note">
+        <i data-lucide="sparkles" aria-hidden="true"></i>
+        一城一味 · 众人共记
+      </span>
+      <button class="mode-pill" id="modePill" type="button" aria-label="切换查询或记录模式">
+        <span class="mode-pill__icon"><i data-lucide="search" aria-hidden="true"></i></span>
+        <span class="mode-pill__copy">
+          <small>当前模式</small>
+          <strong id="modePillText">查询</strong>
+        </span>
+        <i class="mode-pill__swap" data-lucide="repeat-2" aria-hidden="true"></i>
+      </button>
+    </div>
+  </header>
+
+  <main class="app-main" id="mainContent">
+    <section class="view welcome-view is-active" id="welcomeView" aria-labelledby="welcomeTitle">
+      <div class="welcome-inner">
+        <div class="hero-copy">
+          <div class="eyebrow">
+            <span>人间风味地图</span>
+            <span class="eyebrow-rule"></span>
+            <span>EST. 2026</span>
+          </div>
+          <h1 id="welcomeTitle">循着地图<br><em>尝遍人间烟火</em></h1>
+          <p>从一省到一城，看看这片土地上，有哪些味道正被认真记住。</p>
+        </div>
+
+        <div class="entry-grid" aria-label="选择进入模式">
+          <button class="entry-card entry-card--query" id="chooseQuery" type="button">
+            <span class="entry-number">01 / 寻味</span>
+            <span class="entry-card__seal" aria-hidden="true">寻</span>
+            <span class="entry-card__icon"><i data-lucide="map" aria-hidden="true"></i></span>
+            <span class="entry-card__body">
+              <span class="entry-card__title">查询</span>
+              <span class="entry-card__desc">翻开一城的风味档案，看看是谁把这一口留在这里。</span>
+            </span>
+            <span class="entry-card__cta">打开风味地图 <i data-lucide="arrow-up-right" aria-hidden="true"></i></span>
+            <span class="entry-card__wash" aria-hidden="true"></span>
+          </button>
+
+          <button class="entry-card entry-card--record" id="chooseRecord" type="button">
+            <span class="entry-number">02 / 留味</span>
+            <span class="entry-card__seal" aria-hidden="true">记</span>
+            <span class="entry-card__icon"><i data-lucide="notebook-pen" aria-hidden="true"></i></span>
+            <span class="entry-card__body">
+              <span class="entry-card__title">记录</span>
+              <span class="entry-card__desc">把刚出锅的那一刻拍下，替这座城留下一味。</span>
+            </span>
+            <span class="entry-card__cta">写下这一味 <i data-lucide="arrow-up-right" aria-hidden="true"></i></span>
+            <span class="entry-card__wash" aria-hidden="true"></span>
+          </button>
+        </div>
+
+        <div class="welcome-foot">
+          <p><i data-lucide="map-pin" aria-hidden="true"></i> 覆盖全国 34 个省级行政区</p>
+          <p class="welcome-foot__tip"><span></span> 点击入口，开始寻味</p>
+        </div>
+      </div>
+
+      <div class="welcome-stamp" aria-hidden="true">
+        <span>四方食事</span>
+        <span>不过一碗人间烟火</span>
+      </div>
+    </section>
+
+    <section class="view map-view" id="mapView" aria-labelledby="mapTitle" aria-hidden="true" inert>
+      <div class="map-layout">
+        <aside class="map-sidebar">
+          <nav class="breadcrumb" aria-label="地图层级">
+            <button type="button" class="breadcrumb__root" id="breadcrumbRoot">全国</button>
+            <span class="breadcrumb__sep" aria-hidden="true">/</span>
+            <span class="breadcrumb__current" id="breadcrumbCurrent">省份</span>
+          </nav>
+
+          <button class="back-button" id="backButton" type="button">
+            <i data-lucide="arrow-left" aria-hidden="true"></i>
+            <span>返回全国</span>
+          </button>
+
+          <div class="map-heading">
+            <span class="map-kicker" id="mapKicker">CHINA / 全国</span>
+            <h1 id="mapTitle">山河<br><em>入味</em></h1>
+            <p id="mapSubtitle">每一格轮廓里，都藏着一方人的日常。选择一座省份，继续向里走。</p>
+          </div>
+
+          <div class="mode-note" id="modeNote">
+            <span class="mode-note__icon"><i data-lucide="book-open" aria-hidden="true"></i></span>
+            <div>
+              <small id="modeNoteLabel">查询模式</small>
+              <p id="modeNoteText">只读浏览大家留下的风味档案。</p>
+            </div>
+          </div>
+
+          <div class="map-stats" aria-live="polite">
+            <div class="stat-block">
+              <strong id="statRecords">0</strong>
+              <span>已收录风味</span>
+            </div>
+            <div class="stat-divider"></div>
+            <div class="stat-block">
+              <strong id="statRegions">0</strong>
+              <span>被记住的地方</span>
+            </div>
+          </div>
+
+          <div class="region-index" id="regionIndex" hidden>
+            <div class="region-index__head">
+              <span>地区索引</span>
+              <small id="regionIndexCount">0 个地区</small>
+            </div>
+            <div class="region-index__list" id="regionIndexList"></div>
+          </div>
+
+          <div class="map-guide" id="mapGuide">
+            <span><b>01</b> 选择省份</span>
+            <span><b>02</b> 点开地区</span>
+            <span><b>03</b> 查看风味</span>
+          </div>
+        </aside>
+
+        <section class="map-stage" aria-label="中国风味地图">
+          <div class="map-stage__top">
+            <span class="map-coordinate">N 35° 51′ · E 104° 11′</span>
+            <span class="map-index" id="mapIndex">FLAVOR MAP / 001</span>
+          </div>
+
+          <div class="map-frame">
+            <div class="map-brush map-brush--a" aria-hidden="true"></div>
+            <div class="map-brush map-brush--b" aria-hidden="true"></div>
+            <div id="chinaMap" class="map-canvas" role="img" aria-label="中国省份地图，点击省份查看下辖地区"></div>
+
+            <div class="map-cue" id="mapCue">
+              <span class="map-cue__pulse" aria-hidden="true"></span>
+              <span id="mapCueText">移动鼠标，选择一方水土</span>
+            </div>
+
+            <div class="map-loading" id="mapLoading" aria-live="polite" hidden>
+              <span class="loader-mark"><i data-lucide="loader-circle" aria-hidden="true"></i></span>
+              <span>正在铺开这方地图...</span>
+            </div>
+
+            <div class="map-controls" aria-label="地图缩放控制">
+              <button type="button" id="zoomIn" aria-label="放大地图"><i data-lucide="plus" aria-hidden="true"></i></button>
+              <button type="button" id="zoomOut" aria-label="缩小地图"><i data-lucide="minus" aria-hidden="true"></i></button>
+              <button type="button" id="resetMap" aria-label="重置地图视图"><i data-lucide="rotate-ccw" aria-hidden="true"></i></button>
+            </div>
+
+            <div class="map-legend" aria-hidden="true">
+              <span class="legend-line"></span>
+              <span>省级边界</span>
+              <span class="legend-dot"></span>
+              <span>点击进入</span>
+            </div>
+          </div>
+
+          <div class="map-stage__bottom">
+            <span><i data-lucide="compass" aria-hidden="true"></i> 拖动与缩放地图，寻找你的风味坐标</span>
+            <span id="mapLevelText">全国视图 / 34 个省级行政区</span>
+          </div>
+        </section>
+      </div>
+    </section>
+  </main>
+
+  <div class="drawer-scrim" id="drawerScrim" aria-hidden="true"></div>
+  <aside class="region-drawer" id="regionDrawer" aria-labelledby="regionTitle" aria-hidden="true" inert>
+    <div class="drawer-grab" aria-hidden="true"></div>
+    <header class="drawer-header">
+      <div>
+        <span class="drawer-kicker">REGION TASTE FILE</span>
+        <div class="drawer-title-row">
+          <h2 id="regionTitle">地区风味</h2>
+          <span class="drawer-count" id="drawerCount">0 味</span>
+        </div>
+        <p id="drawerMeta">这一方水土的风味档案</p>
+      </div>
+      <button class="icon-button" id="closeDrawer" type="button" aria-label="关闭地区详情">
+        <i data-lucide="x" aria-hidden="true"></i>
+      </button>
+    </header>
+
+    <div class="drawer-notice" id="drawerNotice">
+      <i data-lucide="book-open" aria-hidden="true"></i>
+      <span>正在读档，看看大家记住了什么。</span>
+    </div>
+
+    <div class="record-list" id="recordList" aria-live="polite"></div>
+  </aside>
+
+  <button class="record-fab" id="recordFab" type="button" aria-label="记录这一味" aria-hidden="true" tabindex="-1">
+    <span class="record-fab__ring" aria-hidden="true"></span>
+    <i data-lucide="notebook-pen" aria-hidden="true"></i>
+    <span class="record-fab__label">记下这一味</span>
+  </button>
+
+  <dialog class="record-dialog" id="recordDialog" aria-labelledby="recordDialogTitle">
+    <div class="dialog-paper">
+      <header class="dialog-header">
+        <div>
+          <span class="drawer-kicker">LEAVE A TASTE NOTE</span>
+          <h2 id="recordDialogTitle">记下这一味</h2>
+          <p><span id="recordRegionName">地区</span> · 让这张地图多一点烟火</p>
+        </div>
+        <button class="icon-button" id="closeRecordDialog" type="button" aria-label="关闭记录面板">
+          <i data-lucide="x" aria-hidden="true"></i>
+        </button>
+      </header>
+
+      <form id="recordForm" novalidate>
+        <div class="upload-field">
+          <input id="photoInput" type="file" accept="image/jpeg,image/png,image/webp" hidden>
+          <label class="upload-dropzone" id="uploadDropzone" for="photoInput">
+            <span class="upload-empty" id="uploadEmpty">
+              <span class="upload-icon"><i data-lucide="image-plus" aria-hidden="true"></i></span>
+              <strong>放一张刚出锅的照片</strong>
+              <small>点击或拖入 · JPG / PNG / WEBP · 原图不超过 2MB</small>
+              <span class="upload-link">选择照片</span>
+            </span>
+            <span class="upload-preview" id="uploadPreview" hidden>
+              <img id="uploadPreviewImage" alt="待上传的美食照片预览">
+              <span class="upload-preview__shade" aria-hidden="true"></span>
+              <span class="upload-preview__meta" id="uploadPreviewMeta"></span>
+              <span class="upload-preview__change"><i data-lucide="camera" aria-hidden="true"></i> 更换照片</span>
+            </span>
+            <span class="upload-processing" id="uploadProcessing" hidden>
+              <i data-lucide="loader-circle" aria-hidden="true"></i>
+              正在压缩照片...
+            </span>
+          </label>
+          <p class="field-error" id="uploadError" role="alert"></p>
+          <p class="field-help">照片会先在本机压缩并二次校验，不会上传超过 2MB 的原图。</p>
+        </div>
+
+        <div class="form-grid">
+          <label class="form-field">
+            <span class="form-label">这一味叫什么 <small>选填</small></span>
+            <input id="dishNameInput" type="text" maxlength="30" placeholder="例如：刚出锅的鲜虾肠粉" autocomplete="off">
+          </label>
+          <label class="form-field">
+            <span class="form-label">你的名字</span>
+            <input id="authorInput" type="text" maxlength="20" placeholder="怎么称呼你？" autocomplete="name" required>
+          </label>
+        </div>
+
+        <label class="form-field form-field--description">
+          <span class="form-label">把味道写下来</span>
+          <textarea id="descriptionInput" maxlength="500" rows="4" placeholder="在哪吃的？入口是什么感觉？为什么想记住它？" required></textarea>
+          <span class="char-count"><b id="descriptionCount">0</b> / 500</span>
+        </label>
+        <p class="field-error" id="formError" role="alert"></p>
+
+        <footer class="dialog-actions">
+          <button class="text-button" id="cancelRecord" type="button">先不记了</button>
+          <button class="submit-button" id="submitRecord" type="submit">
+            <span>存入味册</span>
+            <i data-lucide="send" aria-hidden="true"></i>
+          </button>
+        </footer>
+      </form>
+    </div>
+  </dialog>
+
+  <div class="toast-stack" id="toastStack" aria-live="polite" aria-atomic="false"></div>
+
+  <script src="assets/vendor/echarts.min.js"></script>
+  <script src="assets/vendor/lucide.min.js"></script>
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
+
+
+
